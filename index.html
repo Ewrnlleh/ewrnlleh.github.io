@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Personal portfolio website showcasing my skills and projects">
     <title>Ewrnlleh - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="cursor-glow"></div>
+    
     <header>
         <nav>
-            <div class="logo">Ewrnlleh</div>
+            <div class="logo">
+                <span class="logo-bracket">&lt;</span>Ewrnlleh<span class="logo-bracket">/&gt;</span>
+            </div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -22,78 +29,331 @@
 
     <main>
         <section id="hero">
+            <div class="hero-bg"></div>
             <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="status-dot"></span>
+                    Available for opportunities
+                </div>
                 <h1>Hi, I'm <span class="highlight">Ewrnlleh</span></h1>
-                <p class="tagline">Developer & Creator</p>
-                <p class="description">Welcome to my portfolio. I'm passionate about building software and creating meaningful digital experiences.</p>
-                <a href="#contact" class="cta-button">Get In Touch</a>
+                <p class="tagline">
+                    <span class="typing-text">Developer</span>
+                    <span class="typing-cursor">|</span>
+                </p>
+                <p class="description">I craft elegant digital experiences with clean code and creative solutions. Passionate about turning complex problems into simple, beautiful designs.</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="cta-button primary">
+                        <span>View My Work</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#contact" class="cta-button secondary">Get In Touch</a>
+                </div>
+                <div class="scroll-indicator">
+                    <div class="mouse">
+                        <div class="wheel"></div>
+                    </div>
+                    <span>Scroll to explore</span>
+                </div>
             </div>
         </section>
 
         <section id="about">
-            <h2>About Me</h2>
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2>About Me</h2>
+                <div class="section-line"></div>
+            </div>
             <div class="about-content">
-                <p>I'm a developer who loves turning ideas into reality through code. I enjoy working on challenging problems and continuously learning new technologies.</p>
-                <p>When I'm not coding, I'm exploring new tools, contributing to open source, or working on personal projects that spark my curiosity.</p>
+                <div class="about-text">
+                    <p class="lead">I'm a passionate developer who believes in the power of technology to transform ideas into reality.</p>
+                    <p>With a keen eye for detail and a love for clean code, I specialize in creating intuitive digital experiences. I thrive on challenging problems and continuously push myself to learn new technologies and methodologies.</p>
+                    <p>When I'm not coding, you'll find me exploring new tools, contributing to open source projects, or diving into personal projects that spark my curiosity.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Lines of Code</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Learning Mode</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Dedication</span>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="skills">
-            <h2>Skills</h2>
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2>Skills & Expertise</h2>
+                <div class="section-line"></div>
+            </div>
             <div class="skills-grid">
-                <div class="skill-card">
+                <div class="skill-card" data-tilt>
+                    <div class="skill-icon">💻</div>
                     <h3>Programming</h3>
-                    <p>Experience with various programming languages and paradigms</p>
+                    <p>Proficient in multiple programming languages with a focus on writing clean, maintainable code</p>
+                    <div class="skill-tags">
+                        <span>Python</span>
+                        <span>JavaScript</span>
+                        <span>TypeScript</span>
+                    </div>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card" data-tilt>
+                    <div class="skill-icon">🌐</div>
                     <h3>Web Development</h3>
-                    <p>Building responsive and accessible web applications</p>
+                    <p>Building modern, responsive, and accessible web applications with cutting-edge technologies</p>
+                    <div class="skill-tags">
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>CSS</span>
+                    </div>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card" data-tilt>
+                    <div class="skill-icon">🧠</div>
                     <h3>Problem Solving</h3>
-                    <p>Analytical thinking and creative solutions</p>
+                    <p>Analytical thinking combined with creative approaches to solve complex technical challenges</p>
+                    <div class="skill-tags">
+                        <span>Algorithms</span>
+                        <span>Architecture</span>
+                        <span>Optimization</span>
+                    </div>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card" data-tilt>
+                    <div class="skill-icon">🤝</div>
                     <h3>Collaboration</h3>
-                    <p>Working effectively in teams and open source communities</p>
+                    <p>Effective communication and teamwork in agile environments and open source communities</p>
+                    <div class="skill-tags">
+                        <span>Git</span>
+                        <span>Agile</span>
+                        <span>Code Review</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="projects">
-            <h2>Projects</h2>
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2>Featured Projects</h2>
+                <div class="section-line"></div>
+            </div>
             <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Project One</h3>
-                    <p>Description of your first project. Add details about what you built and the technologies used.</p>
-                    <a href="#" class="project-link">View Project →</a>
-                </div>
-                <div class="project-card">
-                    <h3>Project Two</h3>
-                    <p>Description of your second project. Showcase your skills and what makes this project special.</p>
-                    <a href="#" class="project-link">View Project →</a>
-                </div>
-                <div class="project-card">
-                    <h3>Project Three</h3>
-                    <p>Description of your third project. Highlight the problem solved and your approach.</p>
-                    <a href="#" class="project-link">View Project →</a>
-                </div>
+                <article class="project-card featured">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <span>🚀</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-tag">Featured</span>
+                        </div>
+                        <h3>Project One</h3>
+                        <p>An innovative solution showcasing full-stack development capabilities. Built with modern technologies and best practices.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                                Live Demo
+                            </a>
+                            <a href="#" class="project-link">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                                </svg>
+                                Source Code
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <span>⚡</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Project Two</h3>
+                        <p>A high-performance application demonstrating optimization techniques and scalable architecture.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>FastAPI</span>
+                            <span>PostgreSQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <span>🎨</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Project Three</h3>
+                        <p>A creative project showcasing UI/UX design skills with attention to detail and user experience.</p>
+                        <div class="project-tech">
+                            <span>Vue.js</span>
+                            <span>Tailwind</span>
+                            <span>Firebase</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
 
         <section id="contact">
-            <h2>Get In Touch</h2>
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2>Let's Connect</h2>
+                <div class="section-line"></div>
+            </div>
             <div class="contact-content">
-                <p>I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
-                <div class="contact-links">
-                    <a href="https://github.com/Ewrnlleh" class="contact-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <p class="contact-intro">Have a project in mind or just want to chat? I'd love to hear from you.</p>
+                <div class="contact-card">
+                    <div class="contact-info">
+                        <h3>Get in touch</h3>
+                        <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://github.com/Ewrnlleh" class="contact-link github" target="_blank" rel="noopener noreferrer">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Ewrnlleh. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo-bracket">&lt;</span>Ewrnlleh<span class="logo-bracket">/&gt;</span>
+            </div>
+            <p>Designed & Built with <span class="heart">♥</span> by Ewrnlleh</p>
+            <p class="copyright">&copy; 2025 All rights reserved.</p>
+        </div>
     </footer>
+
+    <script>
+        // Cursor glow effect - cache element for performance
+        const cursorGlow = document.querySelector('.cursor-glow');
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = e.clientX + 'px';
+            cursorGlow.style.top = e.clientY + 'px';
+        });
+
+        // Typing animation
+        const texts = ['Developer', 'Creator', 'Problem Solver', 'Innovator'];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.querySelector('.typing-text');
+
+        function type() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentText.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        type();
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.skill-card, .project-card, .about-content, .contact-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
