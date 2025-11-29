@@ -12,11 +12,18 @@
 </head>
 <body>
     <div class="cursor-glow"></div>
+    <div class="cursor-trail" id="cursorTrail"></div>
+    <div class="noise-overlay"></div>
+    
+    <!-- Morphing Blobs Background -->
+    <div class="morph-blob morph-blob-1"></div>
+    <div class="morph-blob morph-blob-2"></div>
+    <div class="morph-blob morph-blob-3"></div>
     
     <header>
         <nav>
             <div class="logo">
-                <span class="logo-bracket">&lt;</span>Ewrnlleh<span class="logo-bracket">/&gt;</span>
+                <span class="logo-bracket">&lt;</span><span class="glitch" data-text="Ewrnlleh">Ewrnlleh</span><span class="logo-bracket">/&gt;</span>
             </div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
@@ -35,7 +42,7 @@
                     <span class="status-dot"></span>
                     Available for opportunities
                 </div>
-                <h1>Hi, I'm <span class="highlight">Ewrnlleh</span></h1>
+                <h1>Hi, I'm <span class="highlight glitch" data-text="Ewrnlleh">Ewrnlleh</span></h1>
                 <p class="tagline">
                     <span class="typing-text">Developer</span>
                     <span class="typing-cursor">|</span>
@@ -60,6 +67,12 @@
         </section>
 
         <section id="about">
+            <!-- Unusual Marquee Banner -->
+            <div class="marquee-container" style="margin-bottom: 3rem; padding: 1rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+                <div class="marquee-content" style="font-family: 'Fira Code', monospace; font-size: 0.9rem; color: var(--text-muted);">
+                    <span>★ BREAKING CONVENTIONS ★ UNUSUAL BY DESIGN ★ CREATIVE CHAOS ★ EMBRACE THE WEIRD ★ CODE IS ART ★ GLITCH IS BEAUTIFUL ★ BREAKING CONVENTIONS ★ UNUSUAL BY DESIGN ★ CREATIVE CHAOS ★ EMBRACE THE WEIRD ★ CODE IS ART ★ GLITCH IS BEAUTIFUL ★&nbsp;</span>
+                </div>
+            </div>
             <div class="section-header">
                 <span class="section-number">01</span>
                 <h2>About Me</h2>
@@ -95,9 +108,9 @@
                 <div class="section-line"></div>
             </div>
             <div class="skills-grid">
-                <div class="skill-card" data-tilt>
-                    <div class="skill-icon">💻</div>
-                    <h3>Programming</h3>
+                <div class="skill-card distort-border" data-tilt>
+                    <div class="skill-icon float-element">💻</div>
+                    <h3 class="scramble-text">Programming</h3>
                     <p>Proficient in multiple programming languages with a focus on writing clean, maintainable code</p>
                     <div class="skill-tags">
                         <span>Python</span>
@@ -105,9 +118,9 @@
                         <span>TypeScript</span>
                     </div>
                 </div>
-                <div class="skill-card" data-tilt>
-                    <div class="skill-icon">🌐</div>
-                    <h3>Web Development</h3>
+                <div class="skill-card distort-border" data-tilt>
+                    <div class="skill-icon float-element">🌐</div>
+                    <h3 class="scramble-text">Web Development</h3>
                     <p>Building modern, responsive, and accessible web applications with cutting-edge technologies</p>
                     <div class="skill-tags">
                         <span>React</span>
@@ -115,9 +128,9 @@
                         <span>CSS</span>
                     </div>
                 </div>
-                <div class="skill-card" data-tilt>
-                    <div class="skill-icon">🧠</div>
-                    <h3>Problem Solving</h3>
+                <div class="skill-card distort-border" data-tilt>
+                    <div class="skill-icon float-element">🧠</div>
+                    <h3 class="scramble-text">Problem Solving</h3>
                     <p>Analytical thinking combined with creative approaches to solve complex technical challenges</p>
                     <div class="skill-tags">
                         <span>Algorithms</span>
@@ -125,9 +138,9 @@
                         <span>Optimization</span>
                     </div>
                 </div>
-                <div class="skill-card" data-tilt>
-                    <div class="skill-icon">🤝</div>
-                    <h3>Collaboration</h3>
+                <div class="skill-card distort-border" data-tilt>
+                    <div class="skill-icon float-element">🤝</div>
+                    <h3 class="scramble-text">Collaboration</h3>
                     <p>Effective communication and teamwork in agile environments and open source communities</p>
                     <div class="skill-tags">
                         <span>Git</span>
@@ -264,7 +277,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <span class="logo-bracket">&lt;</span>Ewrnlleh<span class="logo-bracket">/&gt;</span>
+                <span class="logo-bracket">&lt;</span><span class="glitch" data-text="Ewrnlleh">Ewrnlleh</span><span class="logo-bracket">/&gt;</span>
             </div>
             <p>Designed & Built with <span class="heart">♥</span> by Ewrnlleh</p>
             <p class="copyright">&copy; 2025 All rights reserved.</p>
@@ -274,13 +287,113 @@
     <script>
         // Cursor glow effect - cache element for performance
         const cursorGlow = document.querySelector('.cursor-glow');
+        const cursorTrail = document.getElementById('cursorTrail');
+        
+        // Cursor trail effect
+        let trails = [];
+        const trailCount = 8;
+        
+        for (let i = 0; i < trailCount; i++) {
+            const trail = document.createElement('div');
+            trail.className = 'cursor-trail';
+            trail.style.opacity = (1 - i / trailCount) * 0.5;
+            trail.style.width = (20 - i * 2) + 'px';
+            trail.style.height = (20 - i * 2) + 'px';
+            document.body.appendChild(trail);
+            trails.push({ el: trail, x: 0, y: 0 });
+        }
+        
+        let mouseX = 0, mouseY = 0;
+        
         document.addEventListener('mousemove', (e) => {
             cursorGlow.style.left = e.clientX + 'px';
             cursorGlow.style.top = e.clientY + 'px';
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        
+        // Animate trails
+        function animateTrails() {
+            let prevX = mouseX;
+            let prevY = mouseY;
+            
+            trails.forEach((trail, index) => {
+                const speed = 0.35 - index * 0.03;
+                trail.x += (prevX - trail.x) * speed;
+                trail.y += (prevY - trail.y) * speed;
+                trail.el.style.left = trail.x + 'px';
+                trail.el.style.top = trail.y + 'px';
+                prevX = trail.x;
+                prevY = trail.y;
+            });
+            
+            requestAnimationFrame(animateTrails);
+        }
+        animateTrails();
+
+        // Text scramble effect
+        class TextScramble {
+            constructor(el) {
+                this.el = el;
+                this.chars = '!<>-_\\/[]{}—=+*^?#________';
+                this.originalText = el.innerText;
+                this.update = this.update.bind(this);
+            }
+            
+            scramble() {
+                this.queue = [];
+                const length = this.originalText.length;
+                
+                for (let i = 0; i < length; i++) {
+                    const from = this.originalText[i];
+                    const to = this.originalText[i];
+                    const start = Math.floor(Math.random() * 20);
+                    const end = start + Math.floor(Math.random() * 20);
+                    this.queue.push({ from, to, start, end });
+                }
+                
+                this.frame = 0;
+                this.update();
+            }
+            
+            update() {
+                let output = '';
+                let complete = 0;
+                
+                for (let i = 0; i < this.queue.length; i++) {
+                    let { from, to, start, end, char } = this.queue[i];
+                    
+                    if (this.frame >= end) {
+                        complete++;
+                        output += to;
+                    } else if (this.frame >= start) {
+                        if (!char || Math.random() < 0.28) {
+                            char = this.chars[Math.floor(Math.random() * this.chars.length)];
+                            this.queue[i].char = char;
+                        }
+                        output += char;
+                    } else {
+                        output += from;
+                    }
+                }
+                
+                this.el.innerText = output;
+                
+                if (complete < this.queue.length) {
+                    this.frame++;
+                    requestAnimationFrame(this.update);
+                }
+            }
+        }
+        
+        // Apply scramble effect to elements on hover
+        document.querySelectorAll('.scramble-text').forEach(el => {
+            const scrambler = new TextScramble(el);
+            el.addEventListener('mouseenter', () => scrambler.scramble());
         });
 
         // Typing animation
-        const texts = ['Developer', 'Creator', 'Problem Solver', 'Innovator'];
+        const texts = ['Developer', 'Creator', 'Problem Solver', 'Innovator', 'Glitch Master', 'Chaos Engineer'];
         let textIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -352,6 +465,60 @@
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
+            }
+        });
+        
+        // Random glitch effect on page elements
+        function randomGlitch() {
+            const elements = document.querySelectorAll('.glitch');
+            const randomElement = elements[Math.floor(Math.random() * elements.length)];
+            
+            if (randomElement) {
+                randomElement.style.animation = 'none';
+                randomElement.offsetHeight; // Trigger reflow
+                randomElement.style.animation = '';
+            }
+            
+            setTimeout(randomGlitch, Math.random() * 5000 + 2000);
+        }
+        randomGlitch();
+        
+        // Easter egg: Konami code activates intense mode
+        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        let konamiIndex = 0;
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    document.body.classList.toggle('intense-mode');
+                    konamiIndex = 0;
+                    
+                    // Add intense mode styles dynamically
+                    if (!document.getElementById('intense-styles')) {
+                        const style = document.createElement('style');
+                        style.id = 'intense-styles';
+                        style.textContent = `
+                            .intense-mode {
+                                animation: intenseBg 0.5s infinite;
+                            }
+                            @keyframes intenseBg {
+                                0%, 100% { filter: hue-rotate(0deg); }
+                                50% { filter: hue-rotate(180deg); }
+                            }
+                            .intense-mode .glitch::before,
+                            .intense-mode .glitch::after {
+                                animation-duration: 0.3s !important;
+                            }
+                            .intense-mode .morph-blob {
+                                animation-duration: 2s !important;
+                            }
+                        `;
+                        document.head.appendChild(style);
+                    }
+                }
+            } else {
+                konamiIndex = 0;
             }
         });
     </script>
